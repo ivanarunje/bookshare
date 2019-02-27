@@ -2,7 +2,7 @@
 	
 	session_start();
 	$con=mysqli_connect('localhost','root','');
-	mysqli_select_db($con,'registration_db');
+	mysqli_select_db($con,'bookshare_db');
 	
 	$username=$_POST['username'];
 	$pass=$_POST['password'];

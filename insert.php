@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$con=mysqli_connect('localhost','root','');
-	mysqli_select_db($con,'registration_db');
+	mysqli_select_db($con,'bookshare_db');
 	
 	$title=$_POST['title'];
 	$author=$_POST['author'];

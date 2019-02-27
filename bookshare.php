@@ -73,7 +73,7 @@
 	<div class="gallery">
 		<?php
 		
-			$conn = mysqli_connect("localhost", "root", "", "registration_db");
+			$conn = mysqli_connect("localhost", "root", "", "bookshare_db");
 
 			if (!$conn) {
 
