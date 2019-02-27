@@ -12,33 +12,32 @@
 	<style>
 		.item 
 		{
-		  margin: 18px;
-		  border: 1px solid #ccc;
-		  float: left;
-		  width: 400px;
-		  height: 370px;
+			margin: 18px;
+			border: 1px solid #ccc;
+			float: left;
+			width: 400px;
+			height: 370px;
 		}
-
 		.item:hover 
 		{
-		  border: 1px solid #777;
+			border: 1px solid #777;
 		}
-		.item img {
-		  width: 400px;
-		  height: 260px;
+		.item img 
+		{
+			width: 400px;
+			height: 260px;
 		}
-
 		.desc 
 		{
-		  padding: 5px;
-		  text-align: center;
-		  font-size:16px;
-		  margin:4px 1px;
-		  font-family: 'Lato', sans-serif;
+			padding: 5px;
+			text-align: center;
+			font-size:16px;
+			margin:4px 1px;
+			font-family: 'Lato', sans-serif;
 		}
 		.gallery 
 		{
-		  padding: 15px;
+			padding: 15px;
 		}
 		
 		.moreinfo
@@ -55,8 +54,8 @@
 	<link rel="stylesheet" type="text/css" href="bookshare_style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 
 
@@ -75,45 +74,47 @@
 		
 			$conn = mysqli_connect("localhost", "root", "", "bookshare_db");
 
-			if (!$conn) {
+			if (!$conn) 
+			{
 
 				die("Connection failed: " . mysqli_connect_error());
 			}
 			$sql = "SELECT * FROM books";
 			$result = mysqli_query($conn, $sql);
 
-			while($row = mysqli_fetch_assoc($result)) {
-					$title = $row["title"];
-					$author = $row["author"];
-					$description = $row["description"];
-					$picture = $row["picture"];
-					$email= $row["email"];
-					$id= $row["id"];
-					$username= $row["username"];
-					if($picture=="")
-					{
-						$picture = "no_image.jpg";
-					}
-			?>
+			while($row = mysqli_fetch_assoc($result)) 
+			{
+				$title = $row["title"];
+				$author = $row["author"];
+				$description = $row["description"];
+				$picture = $row["picture"];
+				$email= $row["email"];
+				$id= $row["id"];
+				$username= $row["username"];
+				if($picture=="")
+				{
+					$picture = "no_image.jpg";
+				}
+		?>
 
 			<div class="item">
-			<img src="<?php echo $picture; ?>" alt="" title="<?php echo $title; ?>" width="600" height="400" />
-			<p class="desc"><?php echo $author . " - " . $title; ?></p>
-			<button class="book-button" onclick="toggle_visibility('<?php echo $id; ?>')";>More info</button>
+				<img src="<?php echo $picture; ?>" alt="" title="<?php echo $title; ?>" width="600" height="400" />
+				<p class="desc"><?php echo $author . " - " . $title; ?></p>
+				<button class="book-button" onclick="toggle_visibility('<?php echo $id; ?>')";>More info</button>
+				
 				<div style="display: none;"id="<?php echo $id; ?>" class="moreinfo">
-				<p class="desc"><b>DESCRIPTION:</b><br> <?php echo $description; ?></p>
-				<p class="desc"><b>EMAIL:</b> <br><?php echo $email; ?></p>
-				<!--<button class="form-button" type="submit">Contact</button>-->
+					<p class="desc"><b>DESCRIPTION:</b><br> <?php echo $description; ?></p>
+					<p class="desc"><b>EMAIL:</b> <br><?php echo $email; ?></p>
 				</div>
 			</div>
 	
-	<?php
-	}
-	mysqli_close($conn);
-	?>
+		<?php
+			}
+			mysqli_close($conn);
+		?>
 	</div>
 
-<!-- ADD NEW BOOK FORM-->
+<!-- ADD NEW BOOK FORM -->
 	<div id="modal-wrapper" class="modal">
 		<form class="modal-content animate" method="post" action="insert.php">
 		<h1 style="text-align:center; font-family: Arial;">SHARE YOUR BOOK</h1>
@@ -139,7 +140,6 @@
 		{
 			modalInsert.style.display = "none";
 		}
-
 	}
 	
 	
@@ -152,7 +152,6 @@
     if (e.style.display == 'block' || e.style.display=='')
     {
         e.style.display = 'none';
-
     }
     else 
     {
